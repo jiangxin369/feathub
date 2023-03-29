@@ -24,7 +24,10 @@ from feathub.feathub_client import FeathubClient
 def main() -> None:
     client = FeathubClient(
         props={
-            "processor": {"type": "spark", "spark": {"master": "local[1]"}},
+            "processor": {
+                "type": "spark",
+                "spark": {"master": "spark://localhost:7077"},
+            },
             "registry": {"type": "local", "local": {"namespace": "default"}},
             "feature_service": {"type": "local", "local": {}},
         }
